@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="rviz" value="true"></arg>
+
+    <node pkg="dmpc_uav_ad_hoc" type="uav_controller_node.py" name="uav_controller_node_0" output="screen" args="--uav_idx 0">
+    </node>
+    
+    <group if="$(arg rviz)">
+        <node name="$(anon rviz)" pkg="rviz" type="rviz" respawn="false" output="log"
+            args="-d $(find dmpc_uav_ad_hoc)/rviz/default.rviz">
+        </node>
+    </group>
+
+</launch>

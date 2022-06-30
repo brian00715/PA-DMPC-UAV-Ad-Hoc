@@ -1,0 +1,12 @@
+<launch>
+
+    <include file="$(find dmpc_uav_ad_hoc)/launch/single_uav_spawn.launch">
+        <arg name="namespace" value="iris_0" />
+        <arg name="ID" value="0" />
+        <arg name="ID_in_group" value="0" />
+        <arg name="fcu_url" value="udp://:24540@localhost:34580" />
+
+        
+    </include>
+
+</launch>

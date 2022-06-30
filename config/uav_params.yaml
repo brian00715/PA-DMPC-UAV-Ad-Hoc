@@ -1,0 +1,52 @@
+nmpcc:
+  "performace":
+    "N": 20
+    "Q": [1, 1, 10, 0, 0, 0]
+    "Qf": [1, 1, 10, 0, 0, 0]
+    "R": [0.0075, 1, 1, 1]
+    "max_thrust": 35
+    "max_thrust_rate": 10
+    "max_atti_ang": 30 # degree
+    "max_atti_ang_rate": 10 # degree/s
+  "moderate":
+    "N": 20
+    "Q": [5, 5, 20, 0, 0, 0]
+    "Qf": [5, 5, 20, 0, 0, 0]
+    "R": [0.1, 1, 1, 1]
+    "max_thrust": 35
+    "max_thrust_rate": 10
+    "max_atti_ang": 35
+    "max_atti_ang_rate": 10
+    "max_lin_acc": 8
+  # "power_saving":
+  #   "N": 20
+  #   "Q": [1, 1, 10, 0.1, 0.1, 0.1]
+  #   "Qf": [1, 1, 10, 0, 0, 0]
+  #   "R": [0.05, 20, 20, 1]
+  #   "max_thrust": 35
+  #   "max_thrust_rate": 10
+  #   "max_atti_ang": 30
+  #   "max_atti_ang_rate": 50
+  "power_saving":
+    "N": 20
+    "Q": [5, 5, 20, 0.1, 0.1, 0.1]
+    "Qf": [5, 5, 20, 0, 0, 0]
+    "R": [0.1, 5, 5, 1]
+    "max_thrust": 35
+    "max_thrust_rate": 20
+    "max_atti_ang": 25 # deg 20~30 is good. defualt is 30.
+    "max_atti_ang_rate": 10 # deg/s
+    "max_lin_acc": 3 # 4~8 is good
+  ctrl_rate: 20 # hz
+
+pidc:
+  "kp": 0.2
+  "ki": 0.5
+  "kd": 10
+  "int_clamp": 0.2
+  "int_err_th": 0.3
+
+physics:
+  mass: 2.0 # 2.15 kg
+
+prev_traj_msg_len: 1000

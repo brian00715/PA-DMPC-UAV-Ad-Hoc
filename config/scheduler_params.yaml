@@ -1,0 +1,17 @@
+local_scheduler:
+  p_value_th: 0.5
+  low_pass_filter_alpha: 0.7 # 0.6
+  t_size: 5
+  t_size_polyfit: 0.5
+  t_size_adf: 4
+
+  max_gradient: 3 # 4
+  matrix_q_max_delta: [0, 0, 0, 0, 0, 0]
+  matrix_r_max_delta: [0, 0, 0, 0]
+  max_atti_ang_delta: 0 # [degree] default is 10.
+  max_lin_acc_delta: 7
+
+global_scheduler:
+  form_sim_int_len: 10 # [seconds] default is 10. formation similarity integral time window length
+  form_sim_int_th: 0.002 # defuault is 0.005. threshold of formation similarity integral. less than this value means formation is stable
+  tgt_pose_pub_rate: 0.5 # [hz]

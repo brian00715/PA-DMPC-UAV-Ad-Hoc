@@ -1,0 +1,5 @@
+BasedOnStyle: Microsoft
+IndentWidth: 4
+UseTab: Never
+MaxLineLength: 120
+ColumnLimit: 120

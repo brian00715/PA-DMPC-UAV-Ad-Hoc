@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<robot name="iris">
+  <link name="base_link">
+    <origin rpy="0 -0 0" xyz="0 0 0" />
+    <inertial>
+      <origin rpy="0 -0 0" xyz="0 0 0" />
+      <mass value="1.5" />
+      <inertia ixx="0.029125" ixy="0" ixz="0" iyy="0.029125" iyz="0" izz="0.055225" />
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://px4/Tools/sitl_gazebo/models/iris/meshes/iris.stl"
+          scale="1 1 1" />
+      </geometry>
+      <material name="Gazebo/DarkGrey" />
+    </visual>
+  </link>
+   <link name="imu_link">
+    <origin rpy="0 -0 0" xyz="0 0 0" />
+    <inertial>
+      <origin rpy="0 -0 0" xyz="0 0 0" />
+      <mass value="0.015" />
+      <inertia ixx="1e-05" ixy="0" ixz="0" iyy="1e-05" iyz="0" izz="1e-05" />
+    </inertial>
+  </link>
+  <joint name="imu_joint" type="fixed">
+    <child link="imu_link" />
+    <parent link="base_link" />
+    <axis xyz="1 0 0" />
+    <origin xyz="1 0 0" />
+  </joint>
+  <link name="rotor_0">
+    <origin rpy="0 -0 0" xyz="0.13 -0.22 0.023" />
+    <inertial>
+      <origin rpy="0 -0 0" xyz="0 0 0" />
+      <mass value="0.005" />
+      <inertia ixx="9.75e-07" ixy="0" ixz="0" iyy="0.000273104" iyz="0" izz="0.000274004" />
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://px4/Tools/sitl_gazebo/models/iris/meshes/iris_prop_ccw.dae"
+          scale="1 1 1" />
+      </geometry>
+      <material name="Gazebo/Blue" />
+    </visual>
+  </link>
+  <joint name="rotor_0_joint" type="fixed">
+    <child link="rotor_0" />
+    <parent link="base_link" />
+    <axis xyz="0 0 1" />
+
+    <origin xyz="0 0 1" />
+  </joint>
+  <link name="rotor_1">
+    <origin rpy="0 -0 0" xyz="-0.13 0.2 0.023" />
+    <inertial>
+      <origin rpy="0 -0 0" xyz="0 0 0" />
+      <mass value="0.005" />
+      <inertia ixx="9.75e-07" ixy="0" ixz="0" iyy="0.000273104" iyz="0" izz="0.000274004" />
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://px4/Tools/sitl_gazebo/models/iris/meshes/iris_prop_ccw.dae"
+          scale="1 1 1" />
+      </geometry>
+      <material name="Gazebo/DarkGrey" />
+    </visual>
+  </link>
+  <joint name="rotor_1_joint" type="fixed">
+    <child link="rotor_1" />
+    <parent link="base_link" />
+    <axis xyz="0 0 1" />
+
+    <origin xyz="0 0 1" />
+  </joint>
+  <link name="rotor_2">
+    <origin rpy="0 -0 0" xyz="0.13 0.22 0.023" />
+    <inertial>
+      <origin rpy="0 -0 0" xyz="0 0 0" />
+      <mass value="0.005" />
+      <inertia ixx="9.75e-07" ixy="0" ixz="0" iyy="0.000273104" iyz="0" izz="0.000274004" />
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://px4/Tools/sitl_gazebo/models/iris/meshes/iris_prop_cw.dae"
+          scale="1 1 1" />
+      </geometry>
+      <material name="Gazebo/Blue" />
+    </visual>
+  </link>
+  <joint name="rotor_2_joint" type="fixed">
+    <child link="rotor_2" />
+    <parent link="base_link" />
+    <axis xyz="0 0 1" />
+
+    <origin xyz="0 0 1" />
+  </joint>
+  <link name="rotor_3">
+    <origin rpy="0 -0 0" xyz="-0.13 -0.2 0.023" />
+    <inertial>
+      <origin rpy="0 -0 0" xyz="0 0 0" />
+      <mass value="0.005" />
+      <inertia ixx="9.75e-07" ixy="0" ixz="0" iyy="0.000273104" iyz="0" izz="0.000274004" />
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://px4/Tools/sitl_gazebo/models/iris/meshes/iris_prop_cw.dae"
+          scale="1 1 1" />
+      </geometry>
+      <material name="Gazebo/DarkGrey" />
+    </visual>
+  </link>
+  <joint name="rotor_3_joint" type="fixed">
+    <child link="rotor_3" />
+    <parent link="base_link" />
+    <axis xyz="0 0 1" />
+    <origin xyz="0 0 1" />
+  </joint>
+  <include>
+    <uri>model://hokuyo_lidar</uri>
+    <origin rpy="0 0 0" xyz="0 0 0.06" />
+  </include> 
+  <!-- <joint name="lidar_joint" type="fixed">
+    <child link="lidar_link"/>
+    <parent link="base_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0" upper="0"/>
+    <origin xyz="0 0 1"/>
+  </joint>
+  <include>
+    <uri>model://imu_gazebo</uri>
+    <origin rpy="0 0 0" xyz="0 0 -0.05" />
+  </include>
+  <joint name="imu_gazebo_joint" type="fixed">
+    <child link="imu_link" />
+    <parent link="base_link" />
+    <axis xyz="0 0 1" />
+    <origin xyz="0 0 1" />
+  </joint> -->
+
+  <material name="Gazebo/DarkGrey">
+    <color rgba=".175 .175 .175 1.0" />
+  </material>
+  <material name="Gazebo/Blue">
+    <color rgba="0 0 1 1.0" />
+  </material>
+</robot>
